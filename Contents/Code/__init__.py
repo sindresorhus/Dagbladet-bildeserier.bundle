@@ -35,7 +35,7 @@ def MainMenu():
 			pass
 	return dir
 
-	
+
 def ImageViewer(sender, title='', url=''):
 	dir = MediaContainer(viewGroup='List')
 	photos = HTML.ElementFromURL(url).xpath('//div[@id="galleryViewPhotos"]//div[@class="panel"]')
@@ -50,7 +50,7 @@ def ImageViewer(sender, title='', url=''):
 		return dir
 	else:
 		# Since the images is in JS code, we need to parse out what we need.
-		# This can be removed when the old player i phased out.
+		# This can be removed when the old player is phased out.
 		html = HTML.ElementFromURL(url).xpath('//div[@id="dzImagesPano"]//script[@type="text/javascript"]')
 		html_string = lxml.html.tostring(html[0])
 		matches = re.findall(r'addToSlideshow\((.+?)\)', html_string)
